@@ -6,7 +6,7 @@
     "Matías Sanchez <mail@matysanchez.com>"
   ],
   "description": "Personal site and portfolio of Matías Sanchez",
-  "main": "index.html",
+  "main": "public/index.html",
   "license": "MIT",
   "ignore": [
     "**/.*",
