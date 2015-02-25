@@ -4,4 +4,42 @@
 body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
+    background-color: @background-primary;
+    color: @text-primary;
 }
+
+a {
+    text-decoration: none;
+}
+
+h3 {
+    overflow: hidden;
+    font-size: 1.4em;
+    font-style: italic;
+    text-align: center;
+    text-transform: uppercase;
+}
+h3 span {
+    display: inline-block;
+    padding: 0 0.7em;
+    position: relative;
+}
+h3 span:before,
+h3 span:after {
+    background: @text-primary;
+    content: "";
+    display: block;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    width: 400%;
+}
+h3 span:before {
+    right: 100%;
+}
+h3 span:after {
+    left: 100%;
+}
+
+
+@import "_header";
