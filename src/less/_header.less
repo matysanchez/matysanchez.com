@@ -39,16 +39,21 @@ header {
         text-align: center;
         h2 {
             margin: 1.5em auto 1em;
+            font-family: @helvetica;
+            font-weight: normal;
+            word-spacing: 2px;
         }
         a {
             .rounded(0.6em);
             .transition(300ms, ease-out);
             border: 2px solid @text-seconday;
-            padding: 0.7em 1em;
-            font-weight: lighter;
+            padding: 0.5em 1em;
+            font-family: @opensans;
+            font-weight: 300;
             &:hover {
                 background-color: @text-seconday;
                 color: @background-seconday;
+                text-decoration: none;
             }
         }
     }

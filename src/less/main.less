@@ -2,7 +2,7 @@
 @import "_elements";
 
 body {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: @helvetica; 
     font-weight: 300;
     background-color: @background-primary;
     color: @text-primary;
@@ -10,6 +10,17 @@ body {
 
 a {
     text-decoration: none;
+    color: @background-seconday;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+h2 {
+    text-align: center;
+    margin: 0 0 0.1em 0;
+    font-family: @opensans;
+    font-weight: 800;
 }
 
 h3 {
@@ -18,6 +29,8 @@ h3 {
     font-style: italic;
     text-align: center;
     text-transform: uppercase;
+    font-family: @opensans;
+    font-weight: 300;
 }
 h3 span {
     display: inline-block;
@@ -43,3 +56,26 @@ h3 span:after {
 
 
 @import "_header";
+
+#technology {
+    .row {
+        margin: 1.5em 0;
+    }
+    p {
+        text-align: right;
+        font-size: 1.2em;
+        margin-top: 2em;
+    }
+}
+
+.project {
+    margin: 1em 0 2em 0;
+    font-family: @roboto;
+    h2 {
+        text-align: left;
+        font-size: 2.2em;
+        font-family: @roboto;
+    }
+}
+
+@import "_footer";
