@@ -8,6 +8,7 @@
     <meta name="author" content="Matías Sanchez">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="javascripts/angular.min.js"></script>
+    <script src="javascripts/mixpanel.js"></script>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" type="text/css" href="stylesheets/base.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
@@ -15,7 +16,7 @@
     <!--[if IE 7]><link rel="stylesheet" href="stylesheets/font-ie7.css"><![endif]-->
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:800,400,300,300italic">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" >
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro">
 </head>
 <body>
     <header>
@@ -27,16 +28,16 @@
                 </article>
                 <nav class="eight columns">
                     <ul>
-                        <li><a href="#" class="active">Projects</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Resume</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#" class="active" onclick="mixpanel.track('Link',{'Section':'Projects'});">Projects</a></li>
+                        <li><a href="#" onclick="mixpanel.track('Link',{'Section':'About'});">About</a></li>
+                        <li><a href="#" onclick="mixpanel.track('Link',{'Section':'Resume'});">Resume</a></li>
+                        <li><a href="#" onclick="mixpanel.track('Link',{'Section':'Contact'});">Contact</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="slogan">
                 <h2>I am a <strong>Front-end Web Developer</strong> with strong focus on <strong>User Interface</strong>.</h2>
-                <a href="#">LEARN MORE</a>
+                <a href="#projects" onclick="mixpanel.track('Link',{'Section':'More'});">LEARN MORE</a>
             </div>
         </div>
     </header>
@@ -56,10 +57,10 @@
             <div class="three columns"><img class="u-max-full-width" src="images/php.png" alt="PHP logo" title="PHP"></div>
             <div class="three columns"><img class="u-max-full-width" src="images/wordpress.png" alt="Wordpress logo" title="Wordpress"></div>
         </div>
-        <p>And many more, check it out <a href="#">my resume.</a></p>
+        <p>And many more, check it out <a href="#" onclick="mixpanel.track('Link',{'Section':'Resume bottom'});">my resume.</a></p>
     </section>
 
-    <section class="container">
+    <section class="container" id="projects">
         <h2>Projects</h2>
         <h3><span>A showcase of my work</span></h3>
 
@@ -69,15 +70,48 @@
                 <div class="three columns">
                     <p><i class="icon icon-clock"></i> May. 2014</p>
                     <p><i class="icon icon-location"></i> USA &amp; Europe</p>
-                    <p><a href="#">Visit website</a></p>
+                    <p><a href="http://hangnest.com/">Visit website</a></p>
                 </div>
                 <div class="nine columns description">
-                    <p>In a nutshell, Hangnest allows groups of travelers to "connect with other groups of travelers" to meet and hangout together in the cities they visit - while traveling. Hangnest's profile on Angellist.</p>
-                    <p>Hangnest was made using the following technologies: ...</p>
-                    <p><a href="#">Read more...</a></p>
+                    <p>In a nutshell, Hangnest allows groups of travelers to "connect with other groups of travelers" to meet and hangout together in the cities they visit - while traveling. <a href="https://angel.co/hangnest">Hangnest's profile on Angellist</a>.</p>
+                    <p>Designed and coded just by myself (front-end and backend).</p>
+                    <p>Hangnest was made using the following technologies: PHP, MongoDB, JavaScript, NodeJS, Google Maps, Facebook API and Windows Azure.</p>
                 </div>
                 <img class="u-max-full-width" src="images/hangnest.jpg" alt="Hangnest screenshot" title="Hangnest">
             </div>
+
+            <hr>
+
+            <h2>Norte PC</h2>
+            <div class="row">
+                <div class="three columns">
+                    <p><i class="icon icon-clock"></i> Dec. 2013</p>
+                    <p><i class="icon icon-location"></i> Argentina</p>
+                    <p><a href="http://nortepc.com/">Visit website</a></p>
+                </div>
+                <div class="nine columns description">
+                    <p>Norte PC is a argentinian company who sells and repairs computers and cellphones. I designed and coded this site e-commer site from the scratch.</p>
+                    <p>Norte PC was made using the following technologies: PHP, JavaScript and MySQL.</p>
+                </div>
+                <img class="u-max-full-width" src="images/nortepc.jpg" alt="Norte PC screenshot" title="Norte PC">
+            </div>
+
+            <hr>
+
+            <h2>Humor Ontivero</h2>
+            <div class="row">
+                <div class="three columns">
+                    <p><i class="icon icon-clock"></i> Jan. 2015</p>
+                    <p><i class="icon icon-location"></i> Argentina</p>
+                    <p><a href="http://humorontivero.com/">Visit website</a></p>
+                </div>
+                <div class="nine columns description">
+                    <p>HumorOntivero.com is the personal page of the Argentinian humorist <a href="http://marcosontivero.com/">Marcos Ontivero</a>.</p>
+                    <p>HumorOntivero.com was made using Wordpress with some plugins.</p>
+                </div>
+                <img class="u-max-full-width" src="images/humorontivero.jpg" alt="HumorOntivero.com screenshot" title="HumorOntivero.com">
+            </div>
+
         </article>
     </section>
     <footer>
