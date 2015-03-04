@@ -1,0 +1,66 @@
+body {
+    font-family: @helvetica; 
+    font-weight: 300;
+    background-color: @background-primary;
+    color: @text-primary;
+}
+
+a {
+    text-decoration: none;
+    color: @background-seconday;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+h2 {
+    text-align: center;
+    margin: 0 0 0.1em 0;
+    font-family: @opensans;
+    font-weight: 800;
+}
+
+h3 {
+    overflow: hidden;
+    font-size: 1.4em;
+    font-style: italic;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: @opensans;
+    font-weight: 300;
+}
+h3 span {
+    display: inline-block;
+    padding: 0 0.7em;
+    position: relative;
+}
+h3 span:before,
+h3 span:after {
+    background: @text-primary;
+    content: "";
+    display: block;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    width: 400%;
+}
+h3 span:before {
+    right: 100%;
+}
+h3 span:after {
+    left: 100%;
+}
+
+hr {
+    margin: 1em 0;
+    padding: 0;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid @text-seconday;
+}
+figcaption {
+    font-style: italic;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.2em;
+}

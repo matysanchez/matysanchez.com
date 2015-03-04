@@ -1,103 +1,12 @@
-@import "_vars";
-@import "_elements";
+@import "_vars"; // variables
+@import "_elements"; // elements http://lesselements.com/
 
-body {
-    font-family: @helvetica; 
-    font-weight: 300;
-    background-color: @background-primary;
-    color: @text-primary;
-}
 
-a {
-    text-decoration: none;
-    color: @background-seconday;
-    &:hover {
-        text-decoration: underline;
-    }
-}
+@import "_style"; // basic style
 
-h2 {
-    text-align: center;
-    margin: 0 0 0.1em 0;
-    font-family: @opensans;
-    font-weight: 800;
-}
-
-h3 {
-    overflow: hidden;
-    font-size: 1.4em;
-    font-style: italic;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: @opensans;
-    font-weight: 300;
-}
-h3 span {
-    display: inline-block;
-    padding: 0 0.7em;
-    position: relative;
-}
-h3 span:before,
-h3 span:after {
-    background: @text-primary;
-    content: "";
-    display: block;
-    height: 2px;
-    position: absolute;
-    top: 50%;
-    width: 400%;
-}
-h3 span:before {
-    right: 100%;
-}
-h3 span:after {
-    left: 100%;
-}
-
-hr {
-    margin: 1em 0;
-    padding: 0;
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid #d9d9d9;
-    border-bottom: 1px solid @text-seconday;
-}
-
-@import "_header";
-
-#technology {
-    .row {
-        margin: 1.5em 0;
-    }
-    p {
-        text-align: right;
-        font-size: 1.2em;
-        margin-top: 2em;
-    }
-}
-
-.project {
-    margin: 1em 0 2em 0;
-    font-family: @roboto;
-    h2 {
-        text-align: left;
-        font-size: 2.2em;
-        font-family: @roboto;
-    }
-    .three {
-        font-size: 1.2em;
-        p {
-            margin: 0;
-        }
-        a {
-            margin-top: 0.5em;
-            display: block;
-        }
-    }
-    .nine {
-        font-family: @sourcepro;
-        font-size: 1.6em;
-    }
-}
-
-@import "_footer";
+@import "_header"; // header
+@import "_home"; // home section
+@import "_about"; // about section
+@import "_contact"; // contact section
+@import "_footer"; // footer
+@import "_media-queries"; // media queries

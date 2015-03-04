@@ -1,125 +1,69 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="portfolio">
+<html ng-app="portfolioApp">
 <head>
-    <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <meta charset="utf-8">
     <title>Matías Sanchez</title>
     <meta name="description" content="Front-end web developer with strong focus on User Interface.">
     <meta name="author" content="Matías Sanchez">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="javascripts/angular.min.js"></script>
-    <script src="javascripts/mixpanel.js"></script>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" type="text/css" href="stylesheets/base.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-    <link rel="stylesheet" href="stylesheets/font.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/font.css">
     <!--[if IE 7]><link rel="stylesheet" href="stylesheets/font-ie7.css"><![endif]-->
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:800,400,300,300italic">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script src="javascripts/angular.min.js"></script>
+    <script src="javascripts/angular-route.min.js"></script>
+    <script src="javascripts/portfolio.js"></script>
+    <script src="javascripts/mixpanel.js"></script>
 </head>
 <body>
-    <header>
+    <header ng-controller="headerController">
         <div class="container">
             <div class="row">
                 <article class="four columns">
                     <h1>Matías Sanchez</h1>
                     <p>Front-end web developer</p>
                 </article>
-                <nav class="eight columns">
+                <nav class="eight columns" >
                     <ul>
-                        <li><a href="#" class="active" onclick="mixpanel.track('Link',{'Section':'Projects'});">Projects</a></li>
-                        <li><a href="#" onclick="mixpanel.track('Link',{'Section':'About'});">About</a></li>
-                        <li><a href="#" onclick="mixpanel.track('Link',{'Section':'Resume'});">Resume</a></li>
-                        <li><a href="#" onclick="mixpanel.track('Link',{'Section':'Contact'});">Contact</a></li>
+                        <li><a href="#/" ng-class="{ active: isActive('/')}" onclick="mixpanel.track('Link',{'Section':'Projects'});">Projects</a></li>
+                        <li><a href="#about" ng-class="{ active: isActive('/about')}" onclick="mixpanel.track('Link',{'Section':'About'});">About</a></li>
+                        <li><a href="resume.pdf" onclick="mixpanel.track('Link',{'Section':'Resume'});">Resume</a></li>
+                        <li><a href="#contact" ng-class="{ active: isActive('/contact')}" onclick="mixpanel.track('Link',{'Section':'Contact'});">Contact</a></li>
                     </ul>
                 </nav>
             </div>
-            <div class="slogan">
+            <div class="slogan" ng-class="{ display: isActive('/')}">
                 <h2>I am a <strong>Front-end Web Developer</strong> with strong focus on <strong>User Interface</strong>.</h2>
-                <a href="#projects" onclick="mixpanel.track('Link',{'Section':'More'});">LEARN MORE</a>
+                <a ng-click="scrollTo('projects')" onclick="mixpanel.track('Link',{'Section':'More'});">LEARN MORE</a>
             </div>
         </div>
     </header>
 
-    <section class="container" id="technology">
-        <h2>Technology</h2>
-        <h3><span>Languajes &amp; Frameworks</span></h3>
-        <div class="row">
-            <div class="three columns"><img class="u-max-full-width" src="images/angular.png" alt="Angular logo" title="Angular"></div>
-            <div class="three columns"><img class="u-max-full-width" src="images/backbone.png" alt="Backbone logo" title="Backbone"></div>
-            <div class="three columns"><img class="u-max-full-width" src="images/sassless.png" alt="Sass and LESS logo" title="LESS and SASS"></div>
-            <div class="three columns"><img class="u-max-full-width" src="images/javascript.png" alt="Javascript logo" title="JavaScript"></div>
-        </div>
-        <div class="row">
-            <div class="three columns"><img class="u-max-full-width" src="images/html5.png" alt="HTML5 logo" title="HTML5"></div>
-            <div class="three columns"><img class="u-max-full-width" src="images/css3.png" alt="CSS3 logo" title="CSS3"></div>
-            <div class="three columns"><img class="u-max-full-width" src="images/php.png" alt="PHP logo" title="PHP"></div>
-            <div class="three columns"><img class="u-max-full-width" src="images/wordpress.png" alt="Wordpress logo" title="Wordpress"></div>
-        </div>
-        <p>And many more, check it out <a href="#" onclick="mixpanel.track('Link',{'Section':'Resume bottom'});">my resume.</a></p>
-    </section>
+<div ng-controller="mainController">
+    <div ng-view></div>
+</div>
 
-    <section class="container" id="projects">
-        <h2>Projects</h2>
-        <h3><span>A showcase of my work</span></h3>
 
-        <article class="project">
-            <h2>Hangnest</h2>
-            <div class="row">
-                <div class="three columns">
-                    <p><i class="icon icon-clock"></i> May. 2014</p>
-                    <p><i class="icon icon-location"></i> USA &amp; Europe</p>
-                    <p><a href="http://hangnest.com/">Visit website</a></p>
-                </div>
-                <div class="nine columns description">
-                    <p>In a nutshell, Hangnest allows groups of travelers to "connect with other groups of travelers" to meet and hangout together in the cities they visit - while traveling. <a href="https://angel.co/hangnest">Hangnest's profile on Angellist</a>.</p>
-                    <p>Designed and coded just by myself (front-end and backend).</p>
-                    <p>Hangnest was made using the following technologies: PHP, MongoDB, JavaScript, NodeJS, Google Maps, Facebook API and Windows Azure.</p>
-                </div>
-                <img class="u-max-full-width" src="images/hangnest.jpg" alt="Hangnest screenshot" title="Hangnest">
-            </div>
-
-            <hr>
-
-            <h2>Norte PC</h2>
-            <div class="row">
-                <div class="three columns">
-                    <p><i class="icon icon-clock"></i> Dec. 2013</p>
-                    <p><i class="icon icon-location"></i> Argentina</p>
-                    <p><a href="http://nortepc.com/">Visit website</a></p>
-                </div>
-                <div class="nine columns description">
-                    <p>Norte PC is a argentinian company who sells and repairs computers and cellphones. I designed and coded this site e-commer site from the scratch.</p>
-                    <p>Norte PC was made using the following technologies: PHP, JavaScript and MySQL.</p>
-                </div>
-                <img class="u-max-full-width" src="images/nortepc.jpg" alt="Norte PC screenshot" title="Norte PC">
-            </div>
-
-            <hr>
-
-            <h2>Humor Ontivero</h2>
-            <div class="row">
-                <div class="three columns">
-                    <p><i class="icon icon-clock"></i> Jan. 2015</p>
-                    <p><i class="icon icon-location"></i> Argentina</p>
-                    <p><a href="http://humorontivero.com/">Visit website</a></p>
-                </div>
-                <div class="nine columns description">
-                    <p>HumorOntivero.com is the personal page of the Argentinian humorist <a href="http://marcosontivero.com/">Marcos Ontivero</a>.</p>
-                    <p>HumorOntivero.com was made using Wordpress with some plugins.</p>
-                </div>
-                <img class="u-max-full-width" src="images/humorontivero.jpg" alt="HumorOntivero.com screenshot" title="HumorOntivero.com">
-            </div>
-
-        </article>
-    </section>
     <footer>
         <div class="container">
-            <i class="icon-mail"></i>
-            <i class="icon-github"></i>
-            <i class="icon-instagramm"></i>
+            <p>This page was created using: <a href="http://getskeleton.com/">Skeleton</a> (as a grid system), <a href="https://angularjs.org/">Angular.JS</a>, <a href="http://gruntjs.com/">Grunt</a>, <a href="http://bower.io/">Bower</a>, <a href="http://lesscss.org/">LESS</a> and JavaScript.</p>
+            <p>This is a open source project under <a href="http://opensource.org/licenses/MIT">MIT Licence</a>. Feel free to suggest a edit by submit a <a href="https://github.com/matysanchez/matysanchez.com/pulls">pull request</a>.</p>
+            <p id="github-buttons">
+                <a class="github-button" href="https://github.com/matysanchez/matysanchez.com/fork" data-icon="octicon-git-branch" data-count-href="/matysanchez/matysanchez.com/network" data-count-api="/repos/matysanchez/matysanchez.com#forks_count">Fork</a>
+                <a class="github-button" href="https://github.com/matysanchez/matysanchez.com" data-icon="octicon-star" data-count-href="/matysanchez/matysanchez.com/stargazers" data-count-api="/repos/matysanchez/matysanchez.com#stargazers_count">Star</a>
+            </p>
+            <!-- <p>About me:</p>
+            <a href="#" class="icon-mail">Mail</a>
+            <a href="#" class="icon-github">GitHub</a>
+            <a href="#" class="icon-instagramm">Instagram</a>
+            <a href="https://github.com/matysanchez" class="github-button" data-count-href="/matysanchez/followers" data-count-api="/users/matysanchez#followers">Follow @matysanchez</a>-->
         </div>
     </footer>
+    <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
